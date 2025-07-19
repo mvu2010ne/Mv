@@ -1,171 +1,152 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Yêu Meo Nhất 💗</title>
+  <meta charset="UTF-8">
+  <title>💗 Tình yêu của Minh Vũ và Meo 💗</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       overflow: hidden;
-      height: 100vh;
-      background: url('https://f17-zpc.zdn.vn/jxl/4597529783701647342/fb5e49e8115fa701fe4e.jxl') center center / cover no-repeat;
       font-family: 'Arial', sans-serif;
+      background-image: url('https://f17-zpc.zdn.vn/jxl/4597529783701647342/fb5e49e8115fa701fe4e.jxl');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
     }
-    #heart, #message {
-      position: absolute;
-      width: 100%;
+
+    #content {
+      display: none;
       text-align: center;
-      color: white;
+      margin-top: 80px;
       z-index: 2;
     }
-    #heart {
-      top: 15%;
-      font-size: 18px;
-      white-space: pre;
-      color: pink;
-      text-shadow: 1px 1px 5px red;
+
+    .title {
+      font-size: 38px;
+      animation: glow 2s infinite alternate;
     }
-    #message {
-      bottom: 10%;
-      font-size: 24px;
-      font-weight: bold;
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+      to { text-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
     }
-    .fall {
-      position: fixed;
-      top: -50px;
-      animation: fall 5s linear infinite;
-      color: white;
-      font-weight: bold;
+
+    .falling-text {
+      position: absolute;
+      animation: fall linear infinite;
+      color: #00ffcc;
+      text-shadow: 0 0 5px #00ffff;
+      pointer-events: none;
     }
+
     @keyframes fall {
-      to {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
+      0% { top: -10%; opacity: 1; }
+      100% { top: 110%; opacity: 0; }
     }
-    #avatar {
+
+    #avatars {
       position: absolute;
-      top: 10%;
-      left: 10px;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 3px solid white;
-      background: url('https://f21-zpc.zdn.vn/jxl/1123880515731010045/e9038e82e535536b0a24.jxl') center / cover no-repeat;
-      z-index: 2;
-    }
-    #avatar2 {
-      position: absolute;
-      top: 10%;
-      right: 10px;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 3px solid white;
-      background: url('https://f13-zpc.zdn.vn/jxl/8542089503910349678/7f1e51ba370d8153d81c.jxl') center / cover no-repeat;
-      z-index: 2;
-    }
-    #buttons {
-      position: absolute;
-      top: 75%;
+      top: 20px;
       width: 100%;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 3;
     }
-    #buttons button {
-      padding: 10px 20px;
-      margin: 10px;
-      font-size: 20px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      background: #fff;
-      color: #f00;
+
+    #avatars img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      border: 3px solid white;
+    }
+
+    #start-btn {
+      display: none;
+    }
+
+    .cherry-blossom {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn.pixabay.com/photo/2014/04/02/10/47/cherry-blossom-307766_960_720.png') no-repeat center;
+      background-size: contain;
+      pointer-events: none;
+      animation: fallBlossom linear infinite;
+    }
+
+    @keyframes fallBlossom {
+      0% { transform: translateY(-10%) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110%) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
+
+<div id="avatars">
+  <img src="https://f21-zpc.zdn.vn/jxl/1123880515731010045/e9038e82e535536b0a24.jxl" alt="Minh Vũ">
+  <img src="https://f13-zpc.zdn.vn/jxl/8542089503910349678/7f1e51ba370d8153d81c.jxl" alt="Meo">
+</div>
+
+<div id="content">
+  <div class="title">Anh yêu em nhiều lắm Mèo à 💗</div>
   <audio autoplay loop>
     <source src="https://voice-aac-dl.zdn.vn/108328113511410170/13f18757a723497d1032.aac" type="audio/aac">
   </audio>
+</div>
 
-  <div id="avatar"></div>
-  <div id="avatar2"></div>
+<script>
+  let tries = 0;
+  let allowed = false;
 
-  <div id="heart" style="display: none;">
-    💗💗💗      💗💗💗
-  💗💗💗💗  💗💗💗💗
-  💗💗💗💗💗💗💗💗
-   💗💗💗💗💗💗
-    💗💗💗💗💗
-     💗💗💗💗
-      💗💗💗
-       💗💗
-        💗
-  <br><br>
-  <b style="color:white; font-size: 20px;">Yêu Mèo Nhà Anh Nhất</b>
-  <br><br>
-  Anh Yêu Mèo 🥰🥰🥰🥰🥰🥰🥰
-  </div>
-
-  <div id="message"></div>
-  <div id="buttons" style="display:none;">
-    <button onclick="showLove()">Có</button>
-    <button onclick="loopNo()">Không</button>
-  </div>
-
-  <script>
-    let tries = 0;
-    let pass = "";
-
-    function askPassword() {
-      pass = prompt("Nhập mật khẩu để tiếp tục:");
-      if (pass === null) return;
-      if (pass.trim().toLowerCase() === "meo") {
-        tries++;
-        if (tries >= 5) {
-          document.getElementById("heart").style.display = "block";
-          document.getElementById("buttons").style.display = "block";
-          startRain();
-        } else {
-          alert("Nhập đúng rồi, còn " + (5 - tries) + " lần nữa nhé!");
-          askPassword();
-        }
+  function askPassword() {
+    let pwd = prompt("Nhập mật khẩu để vào thế giới tình yêu:");
+    if (pwd === "mvuyeumeo") {
+      tries++;
+      if (tries >= 5) {
+        allowed = true;
+        showContent();
       } else {
-        alert("Sai rồi, thử lại đi!");
+        alert(`Đúng rồi! Nhưng cần nhập đúng ${5 - tries} lần nữa để chứng minh tình cảm 🥰`);
         askPassword();
       }
+    } else {
+      alert("Sai mất rồi! Nhập lại nha 🥲");
+      askPassword();
     }
+  }
 
-    function showLove() {
-      document.getElementById("message").innerText = "Anh yêu em nhiều lắm Mèo à 💗";
-    }
+  function showContent() {
+    document.getElementById("content").style.display = "block";
+    setInterval(createFallingText, 500);
+    setInterval(createBlossom, 700);
+  }
 
-    function loopNo() {
-      alert("Thế thì đừng vào 😝");
-      for (let i = 0; i < 5; i++) {
-        let no = document.createElement("div");
-        no.className = "fall";
-        no.style.left = Math.random() * window.innerWidth + "px";
-        no.style.fontSize = Math.random() > 0.5 ? "32px" : "16px";
-        no.innerText = "Không 💔";
-        document.body.appendChild(no);
-      }
-    }
+  function createFallingText() {
+    const text = document.createElement("div");
+    text.classList.add("falling-text");
+    text.style.left = Math.random() * 100 + "vw";
+    text.style.fontSize = Math.random() < 0.5 ? "16px" : "28px";
+    text.innerText = "Minh Vũ 💗 Meo";
+    text.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.body.appendChild(text);
+    setTimeout(() => text.remove(), 8000);
+  }
 
-    function startRain() {
-      setInterval(() => {
-        const fall = document.createElement("div");
-        fall.className = "fall";
-        fall.style.left = Math.random() * window.innerWidth + "px";
-        fall.style.fontSize = Math.random() > 0.5 ? "32px" : "16px";
-        fall.innerText = "Minh Vũ 💗 Meo";
-        document.body.appendChild(fall);
-        setTimeout(() => fall.remove(), 6000);
-      }, 300);
-    }
+  function createBlossom() {
+    const blossom = document.createElement("div");
+    blossom.classList.add("cherry-blossom");
+    blossom.style.left = Math.random() * 100 + "vw";
+    blossom.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(blossom);
+    setTimeout(() => blossom.remove(), 10000);
+  }
 
-    askPassword();
-  </script>
+  window.onload = askPassword;
+</script>
+
 </body>
 </html>
