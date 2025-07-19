@@ -1,135 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Yêu Meo</title>
+  <meta charset="UTF-8" />
+  <title>Yêu Meo Nhất 💗</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background: url('https://f17-zpc.zdn.vn/jxl/4597529783701647342/fb5e49e8115fa701fe4e.jxl') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Arial', sans-serif;
       overflow: hidden;
+      height: 100vh;
+      background: url('https://f17-zpc.zdn.vn/jxl/4597529783701647342/fb5e49e8115fa701fe4e.jxl') center center / cover no-repeat;
+      font-family: 'Arial', sans-serif;
     }
-
-    .heart {
-      font-size: 40px;
-      text-align: center;
-      white-space: pre;
-      color: pink;
-      position: relative;
-      z-index: 1;
-      margin-top: 20px;
-    }
-
-    .center-text {
+    #heart, #message {
       position: absolute;
-      top: 42%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: red;
-      font-size: 26px;
-      font-weight: bold;
-      text-shadow: 2px 2px white;
-      z-index: 2;
-    }
-
-    .bottom-text {
-      position: absolute;
-      bottom: 30px;
       width: 100%;
       text-align: center;
-      font-size: 20px;
-      color: #fff;
-      text-shadow: 1px 1px #000;
+      color: white;
       z-index: 2;
     }
-
-    .avatar {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 4px solid white;
-      background-size: cover;
+    #heart {
+      top: 15%;
+      font-size: 18px;
+      white-space: pre;
+      color: pink;
+      text-shadow: 1px 1px 5px red;
     }
-
-    .avatar2 {
-      top: 10px;
-      right: 10px;
-      left: auto;
-    }
-
-    .falling-text {
-      position: absolute;
-      color: #ff69b4;
+    #message {
+      bottom: 10%;
+      font-size: 24px;
       font-weight: bold;
-      animation: fall 5s linear infinite;
-      pointer-events: none;
-      z-index: 0;
     }
-
+    .fall {
+      position: fixed;
+      top: -50px;
+      animation: fall 5s linear infinite;
+      color: white;
+      font-weight: bold;
+    }
     @keyframes fall {
-      0% {
-        top: -5%;
-        opacity: 1;
-      }
-      100% {
-        top: 100%;
+      to {
+        transform: translateY(110vh);
         opacity: 0;
       }
+    }
+    #avatar {
+      position: absolute;
+      top: 10%;
+      left: 10px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid white;
+      background: url('https://f21-zpc.zdn.vn/jxl/1123880515731010045/e9038e82e535536b0a24.jxl') center / cover no-repeat;
+      z-index: 2;
+    }
+    #avatar2 {
+      position: absolute;
+      top: 10%;
+      right: 10px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid white;
+      background: url('https://f13-zpc.zdn.vn/jxl/8542089503910349678/7f1e51ba370d8153d81c.jxl') center / cover no-repeat;
+      z-index: 2;
+    }
+    #buttons {
+      position: absolute;
+      top: 75%;
+      width: 100%;
+      text-align: center;
+    }
+    #buttons button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background: #fff;
+      color: #f00;
     }
   </style>
 </head>
 <body>
-
-  <div class="avatar" style="background-image: url('https://f21-zpc.zdn.vn/jxl/1123880515731010045/e9038e82e535536b0a24.jxl')"></div>
-  <div class="avatar avatar2" style="background-image: url('https://f13-zpc.zdn.vn/jxl/8542089503910349678/7f1e51ba370d8153d81c.jxl')"></div>
-
-  <div class="heart">
-❤❤❤❤❤❤❤<br>
-❤❤❤❤❤❤❤❤❤<br>
-❤❤❤❤❤❤❤❤❤❤<br>
-❤❤❤❤❤❤❤❤❤❤<br>
-❤❤❤❤❤❤❤❤❤<br>
-❤❤❤❤❤❤❤❤<br>
-❤❤❤❤❤❤❤<br>
-❤❤❤❤❤❤<br>
-❤❤❤❤❤<br>
-❤❤❤❤<br>
-❤❤❤<br>
-❤❤<br>
-❤<br>
-  </div>
-
-  <div class="center-text">Yêu Mèo Nhà Anh Nhất</div>
-  <div class="bottom-text">Anh Yêu Mèo 🥰</div>
-
   <audio autoplay loop>
     <source src="https://voice-aac-dl.zdn.vn/108328113511410170/13f18757a723497d1032.aac" type="audio/aac">
-    Trình duyệt không hỗ trợ nhạc.
   </audio>
 
-  <script>
-    const names = ['Minh Vũ 💗 Meo', 'Minh Vũ 💗 Meo', 'Meo 💗 Vũ', '💗 Minh Vũ Yêu Mèo 💗'];
-    function createFallingText() {
-      const text = document.createElement('div');
-      text.className = 'falling-text';
-      text.style.left = Math.random() * window.innerWidth + 'px';
-      text.style.fontSize = (Math.random() * 20 + 16) + 'px';
-      text.innerText = names[Math.floor(Math.random() * names.length)];
-      document.body.appendChild(text);
+  <div id="avatar"></div>
+  <div id="avatar2"></div>
 
-      setTimeout(() => {
-        text.remove();
-      }, 5000);
+  <div id="heart" style="display: none;">
+    💗💗💗      💗💗💗
+  💗💗💗💗  💗💗💗💗
+  💗💗💗💗💗💗💗💗
+   💗💗💗💗💗💗
+    💗💗💗💗💗
+     💗💗💗💗
+      💗💗💗
+       💗💗
+        💗
+  <br><br>
+  <b style="color:white; font-size: 20px;">Yêu Mèo Nhà Anh Nhất</b>
+  <br><br>
+  Anh Yêu Mèo 🥰🥰🥰🥰🥰🥰🥰
+  </div>
+
+  <div id="message"></div>
+  <div id="buttons" style="display:none;">
+    <button onclick="showLove()">Có</button>
+    <button onclick="loopNo()">Không</button>
+  </div>
+
+  <script>
+    let tries = 0;
+    let pass = "";
+
+    function askPassword() {
+      pass = prompt("Nhập mật khẩu để tiếp tục:");
+      if (pass === null) return;
+      if (pass.trim().toLowerCase() === "meo") {
+        tries++;
+        if (tries >= 5) {
+          document.getElementById("heart").style.display = "block";
+          document.getElementById("buttons").style.display = "block";
+          startRain();
+        } else {
+          alert("Nhập đúng rồi, còn " + (5 - tries) + " lần nữa nhé!");
+          askPassword();
+        }
+      } else {
+        alert("Sai rồi, thử lại đi!");
+        askPassword();
+      }
     }
 
-    setInterval(createFallingText, 300);
-  </script>
+    function showLove() {
+      document.getElementById("message").innerText = "Anh yêu em nhiều lắm Mèo à 💗";
+    }
 
+    function loopNo() {
+      alert("Thế thì đừng vào 😝");
+      for (let i = 0; i < 5; i++) {
+        let no = document.createElement("div");
+        no.className = "fall";
+        no.style.left = Math.random() * window.innerWidth + "px";
+        no.style.fontSize = Math.random() > 0.5 ? "32px" : "16px";
+        no.innerText = "Không 💔";
+        document.body.appendChild(no);
+      }
+    }
+
+    function startRain() {
+      setInterval(() => {
+        const fall = document.createElement("div");
+        fall.className = "fall";
+        fall.style.left = Math.random() * window.innerWidth + "px";
+        fall.style.fontSize = Math.random() > 0.5 ? "32px" : "16px";
+        fall.innerText = "Minh Vũ 💗 Meo";
+        document.body.appendChild(fall);
+        setTimeout(() => fall.remove(), 6000);
+      }, 300);
+    }
+
+    askPassword();
+  </script>
 </body>
 </html>
